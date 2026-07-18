@@ -30,7 +30,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/lucide-react/dist/umd/lucide-react.js"></script>
+  <script>window.react = window.React;</script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide-react@1.0.0/dist/umd/lucide-react.js"></script>
+  <script>var lucideReact = LucideReact;</script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -174,7 +176,7 @@
 <script type="text/babel">
 const { useState, useEffect, useRef, useCallback } = React;
 const {
-  ShoppingCart, Search, Heart, Menu, X, Star, Minus, Plus,
+  ShoppingCart, Search, Heart, Menu, XIcon: X, Star, Minus, Plus,
   Check, Mail, Gift, Lock, TrendingUp, DollarSign, Users, Sparkles,
   Package, Shield, RotateCcw, ArrowRight, MapPin, CreditCard,
   ChevronRight, Truck, RefreshCw, Leaf, Award, BookOpen
