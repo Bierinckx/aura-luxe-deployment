@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bierinckx.com/sitemap.xml
