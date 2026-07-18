@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F5EDD8"/>
+      <stop offset="100%" stop-color="#EDE0CF"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B6914"/>
+      <stop offset="50%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#8B6914"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <rect width="64" height="64" rx="14" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.5"/>
+  <!-- Four-pointed star ✦ -->
+  <path d="M32 8 L34.8 29.2 L56 32 L34.8 34.8 L32 56 L29.2 34.8 L8 32 L29.2 29.2 Z" fill="url(#gold)"/>
+  <!-- Small corner dots -->
+  <circle cx="18" cy="18" r="1.5" fill="#C9A84C" opacity="0.5"/>
+  <circle cx="46" cy="18" r="1.5" fill="#C9A84C" opacity="0.5"/>
+  <circle cx="18" cy="46" r="1.5" fill="#C9A84C" opacity="0.5"/>
+  <circle cx="46" cy="46" r="1.5" fill="#C9A84C" opacity="0.5"/>
+</svg>

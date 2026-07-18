@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F5EDD8"/>
+      <stop offset="40%" stop-color="#EDE0CF"/>
+      <stop offset="100%" stop-color="#E8DDD0"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8B6914"/>
+      <stop offset="50%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#8B6914"/>
+    </linearGradient>
+    <linearGradient id="goldVert" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B6914"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="15%" cy="85%" r="45%">
+      <stop offset="0%" stop-color="#8B6914" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#8B6914" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#8B6914" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Subtle noise texture lines -->
+  <rect width="1200" height="630" fill="none" stroke="#C9A84C" stroke-width="0.3" opacity="0.08"/>
+
+  <!-- Outer border frame -->
+  <rect x="28" y="28" width="1144" height="574" rx="24" fill="none" stroke="#C9A84C" stroke-width="1.5" opacity="0.35"/>
+  <rect x="36" y="36" width="1128" height="558" rx="20" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Corner ornaments -->
+  <!-- TL -->
+  <line x1="48" y1="60" x2="48" y2="80" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+  <line x1="40" y1="68" x2="60" y2="68" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+  <!-- TR -->
+  <line x1="1152" y1="60" x2="1152" y2="80" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+  <line x1="1140" y1="68" x2="1160" y2="68" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+  <!-- BL -->
+  <line x1="48" y1="550" x2="48" y2="570" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+  <line x1="40" y1="560" x2="60" y2="560" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+  <!-- BR -->
+  <line x1="1152" y1="550" x2="1152" y2="570" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+  <line x1="1140" y1="560" x2="1160" y2="560" stroke="#C9A84C" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Left decorative vertical line -->
+  <line x1="160" y1="120" x2="160" y2="510" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
+
+  <!-- Star icon (large, decorative, right side) -->
+  <g transform="translate(820, 195)" opacity="0.12">
+    <path d="M120 0 L131 89 L220 100 L131 111 L120 200 L109 111 L20 100 L109 89 Z" fill="#8B6914"/>
+  </g>
+  <g transform="translate(820, 195)" opacity="0.06">
+    <path d="M120 0 L131 89 L220 100 L131 111 L120 200 L109 111 L20 100 L109 89 Z" fill="none" stroke="#8B6914" stroke-width="1.5"/>
+  </g>
+
+  <!-- Small star accent -->
+  <g transform="translate(196, 296)" filter="url(#softShadow)">
+    <path d="M18 0 L20.2 13.8 L34 16 L20.2 18.2 L18 32 L15.8 18.2 L2 16 L15.8 13.8 Z" fill="url(#goldVert)"/>
+  </g>
+
+  <!-- Brand label pill -->
+  <rect x="220" y="175" width="220" height="36" rx="18" fill="#1C1C1E"/>
+  <text x="330" y="199" font-family="Georgia, serif" font-size="11" font-weight="600" fill="#C9A84C" text-anchor="middle" letter-spacing="4">✦  LUXURY BEAUTY</text>
+
+  <!-- Main heading: AURA -->
+  <text x="220" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="148" font-weight="700" fill="#1C1C1E" letter-spacing="-4" opacity="0.9">AURA</text>
+
+  <!-- Main heading: LUXE (gold) -->
+  <text x="222" y="430" font-family="Georgia, 'Times New Roman', serif" font-size="148" font-weight="700" fill="url(#gold)" letter-spacing="-4" font-style="italic">LUXE</text>
+
+  <!-- Divider line -->
+  <line x1="220" y1="460" x2="700" y2="460" stroke="#C9A84C" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Tagline -->
+  <text x="220" y="498" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="300" fill="#6B6B6B" letter-spacing="3">CURATED LUXURY BEAUTY MARKETPLACE</text>
+
+  <!-- Bottom stats row -->
+  <text x="220" y="556" font-family="Georgia, serif" font-size="16" fill="#8B6914" opacity="0.7" letter-spacing="1">14+ eigen producten  ·  8 partner merken  ·  bierinckx.com</text>
+
+  <!-- Right side: decorative product circles -->
+  <circle cx="970" cy="315" r="185" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.15"/>
+  <circle cx="970" cy="315" r="150" fill="rgba(139,105,20,0.04)" stroke="#C9A84C" stroke-width="0.5" opacity="0.2"/>
+  <circle cx="970" cy="315" r="110" fill="rgba(201,168,76,0.07)"/>
+
+  <!-- Center star in circle -->
+  <g transform="translate(952, 297)">
+    <path d="M18 0 L20.5 12.5 L33 15 L20.5 17.5 L18 30 L15.5 17.5 L3 15 L15.5 12.5 Z" fill="url(#goldVert)" opacity="0.9"/>
+  </g>
+
+  <!-- Small product dots around circle -->
+  <circle cx="970" cy="165" r="6" fill="#C9A84C" opacity="0.4"/>
+  <circle cx="1114" cy="248" r="4" fill="#8B6914" opacity="0.3"/>
+  <circle cx="1114" cy="382" r="4" fill="#8B6914" opacity="0.3"/>
+  <circle cx="970" cy="465" r="6" fill="#C9A84C" opacity="0.4"/>
+  <circle cx="826" cy="382" r="4" fill="#8B6914" opacity="0.3"/>
+  <circle cx="826" cy="248" r="4" fill="#8B6914" opacity="0.3"/>
+</svg>
