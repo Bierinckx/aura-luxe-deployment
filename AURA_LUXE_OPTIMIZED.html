@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AURA LUXE — Luxury Curated Beauty</title>
+  <meta name="description" content="AURA LUXE — Luxury beauty marketplace. 70% eigen premium creaties + 30% mondiale partnerships. Ontdek jouw unieke glow.">
+  <meta name="keywords" content="luxury beauty, cosmetics, skincare, makeup, curated beauty, premium, aura luxe">
+  <meta name="theme-color" content="#8B6914">
+  <meta name="author" content="AURA LUXE">
+  <meta property="og:title" content="AURA LUXE — Luxury Curated Beauty">
+  <meta property="og:description" content="70% eigen premium creaties + 30% mondiale partnerships. Ontdek jouw unieke glow.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1578236430803-1fbfc9e0b5f9?w=1200&h=630&fit=crop">
+  <meta property="og:locale" content="nl_BE">
+  <meta property="og:site_name" content="AURA LUXE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AURA LUXE — Luxury Curated Beauty">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1578236430803-1fbfc9e0b5f9?w=1200&h=630&fit=crop">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='78' font-size='72' fill='%238B6914'>✦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"AURA LUXE","description":"Luxury beauty marketplace","url":"https://bierinckx.com","priceRange":"€€€","currenciesAccepted":"EUR","paymentAccepted":"Credit Card"}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/lucide-react/dist/umd/lucide-react.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;height:auto;display:block}
+    button{-webkit-appearance:none;appearance:none;cursor:pointer}
+    a{text-decoration:none;color:inherit}
+    :root{
+      --gold:#8B6914;--gold-mid:#C9A84C;--gold-pale:#F5EDD8;
+      --cream:#FAF8F4;--dark:#1C1C1E;--mid:#6B6B6B;
+      --border:rgba(139,105,20,0.12);--border-md:rgba(139,105,20,0.22);
+      --fd:'Cormorant Garamond',Georgia,serif;--fb:'Jost',system-ui,sans-serif;
+      --spring:cubic-bezier(0.34,1.56,0.64,1);--expo:cubic-bezier(0.19,1,0.22,1);--snappy:cubic-bezier(0.32,0.72,0,1);
+    }
+    body{font-family:var(--fb);background:var(--cream);color:var(--dark);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:var(--fd);line-height:1.1}
+    body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px 128px}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-28px) scale(1.04)}}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.94)}to{opacity:1;transform:scale(1)}}
+    @keyframes shimmer{0%{background-position:-300% center}100%{background-position:300% center}}
+    @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes slideRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 800ms var(--expo),transform 800ms var(--expo)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-d1{transition-delay:100ms}.reveal-d2{transition-delay:200ms}.reveal-d3{transition-delay:300ms}.reveal-d4{transition-delay:400ms}
+    /* Ann bar */
+    .ann-bar{background:var(--dark);height:38px;overflow:hidden;display:flex;align-items:center}
+    .ann-track{display:flex;white-space:nowrap;will-change:transform;animation:marquee 32s linear infinite}
+    .ann-track span{display:inline-flex;align-items:center;font-size:10px;letter-spacing:2.5px;font-weight:500;color:var(--gold-mid);padding:0 3rem;font-family:var(--fb);text-transform:uppercase}
+    /* Nav */
+    .nav-island{position:sticky;top:12px;z-index:100;display:flex;justify-content:center;padding:0 20px}
+    .nav-pill{display:flex;align-items:center;justify-content:space-between;gap:20px;background:rgba(250,248,244,0.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--border-md);border-radius:100px;padding:10px 14px 10px 24px;width:100%;max-width:960px;box-shadow:0 4px 24px rgba(28,28,30,0.07),0 1px 2px rgba(28,28,30,0.04)}
+    /* Hero */
+    .hero-wrap{position:relative;overflow:hidden;background:linear-gradient(150deg,#f5ece0 0%,#ede0cf 35%,#f2e8dc 70%,#e8ddd0 100%);padding:clamp(80px,14vw,160px) 0 clamp(60px,10vw,120px)}
+    .orb{position:absolute;border-radius:50%;filter:blur(88px);pointer-events:none;will-change:transform}
+    .orb-1{width:680px;height:680px;background:radial-gradient(circle,rgba(201,168,76,0.28) 0%,transparent 70%);top:-220px;right:-180px;animation:orbFloat 12s ease-in-out infinite}
+    .orb-2{width:480px;height:480px;background:radial-gradient(circle,rgba(139,105,20,0.18) 0%,transparent 70%);bottom:-130px;left:-80px;animation:orbFloat 16s ease-in-out infinite reverse}
+    /* Cards */
+    .card-shell{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.85);border-radius:2rem;padding:5px;cursor:pointer;transition:box-shadow 500ms var(--expo),transform 500ms var(--expo)}
+    .card-shell:hover{box-shadow:0 28px 72px rgba(139,105,20,0.16),0 4px 16px rgba(0,0,0,0.05);transform:translateY(-7px)}
+    .card-inner{background:#fff;border-radius:calc(2rem - 5px);overflow:hidden;box-shadow:inset 0 1px 1px rgba(255,255,255,0.9);border:1px solid rgba(232,221,208,0.45)}
+    .card-img{overflow:hidden;aspect-ratio:1;background:linear-gradient(145deg,#f5f0ea,#ede8e0)}
+    .card-img img{width:100%;height:100%;object-fit:cover;transition:transform 700ms var(--expo)}
+    .card-shell:hover .card-img img{transform:scale(1.08)}
+    /* Phil cards */
+    .phil-shell{background:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.9);border-radius:2rem;padding:5px;transition:box-shadow 500ms var(--expo),transform 500ms var(--expo)}
+    .phil-shell:hover{box-shadow:0 24px 60px rgba(139,105,20,0.12);transform:translateY(-4px)}
+    .phil-inner{background:#fff;border-radius:calc(2rem - 5px);padding:40px 32px;box-shadow:inset 0 1px 1px rgba(255,255,255,0.9);text-align:center}
+    .phil-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--gold-pale) 0%,#ede0cf 100%);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--fb);font-weight:500;font-size:13px;letter-spacing:0.4px;border:none;transition:transform 300ms var(--spring),box-shadow 300ms var(--expo),background 250ms ease,border-color 250ms ease}
+    .btn:active{transform:scale(0.97)}
+    .btn-dark{background:var(--dark);color:#fff;padding:13px 26px;border-radius:100px;border:2px solid var(--dark)}
+    .btn-dark:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 28px rgba(139,105,20,0.32)}
+    .btn-ghost{background:transparent;color:var(--dark);padding:12px 24px;border-radius:100px;border:1.5px solid rgba(28,28,30,0.22)}
+    .btn-ghost:hover{border-color:var(--dark);background:rgba(28,28,30,0.04);transform:translateY(-2px)}
+    .btn-gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-mid) 100%);color:#fff;padding:13px 26px;border-radius:100px;border:none}
+    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(139,105,20,0.35)}
+    .btn-amber{background:linear-gradient(135deg,#c9956d 0%,#d4a574 100%);color:#fff;padding:13px 26px;border-radius:100px;border:none;width:100%}
+    .btn-amber:hover{transform:scale(1.02);box-shadow:0 10px 28px rgba(212,165,116,0.38)}
+    .btn-icon{width:26px;height:26px;background:rgba(255,255,255,0.14);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 300ms var(--spring)}
+    .btn-dark:hover .btn-icon,.btn-ghost:hover .btn-icon{transform:translate(1px,-1px) scale(1.1)}
+    /* Pills */
+    .pill{display:inline-flex;align-items:center;padding:8px 20px;border-radius:100px;font-size:12px;font-weight:500;font-family:var(--fb);cursor:pointer;border:1.5px solid rgba(232,221,208,0.85);background:rgba(255,255,255,0.7);color:var(--mid);transition:all 220ms var(--snappy)}
+    .pill:hover{border-color:var(--gold);color:var(--gold)}
+    .pill.active{background:var(--dark);border-color:var(--dark);color:#fff}
+    /* Eyebrow */
+    .eyebrow{display:inline-flex;align-items:center;gap:6px;padding:7px 18px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;font-family:var(--fb);background:linear-gradient(135deg,var(--gold) 0%,var(--gold-mid) 100%);color:#fff}
+    /* Badges */
+    .badge{display:inline-flex;align-items:center;padding:4px 11px;border-radius:100px;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-family:var(--fb)}
+    .badge-own{background:var(--gold);color:#fff}
+    .badge-prt{background:linear-gradient(135deg,#c9956d,#d4a574);color:#fff}
+    .badge-new{background:#1C1C1E;color:#fff}
+    /* Gold shimmer */
+    .gold-shimmer{background:linear-gradient(90deg,var(--gold) 0%,var(--gold-mid) 50%,var(--gold) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite}
+    /* Newsletter */
+    .nl-wrap{background:linear-gradient(150deg,#1C1C1E 0%,#2A2218 100%);border-radius:2rem;padding:clamp(48px,8vw,96px) clamp(24px,5vw,56px);position:relative;overflow:hidden}
+    .nl-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px)}
+    .nl-orb-1{width:480px;height:480px;background:radial-gradient(circle,rgba(139,105,20,0.2) 0%,transparent 70%);top:-180px;right:-120px}
+    .nl-orb-2{width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,0.12) 0%,transparent 70%);bottom:-80px;left:-60px}
+    .nl-input{flex:1;background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.13);color:#fff;padding:14px 20px;border-radius:100px;font-family:var(--fb);font-size:14px;outline:none;transition:border-color 250ms ease}
+    .nl-input::placeholder{color:rgba(255,255,255,0.35)}
+    .nl-input:focus{border-color:var(--gold-mid)}
+    /* Dashboard */
+    .dash-bg{background:linear-gradient(150deg,#1C1C1E 0%,#2A2218 100%);color:#fff;padding:56px 0}
+    .dash-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:26px;transition:background 300ms ease}
+    .dash-card:hover{background:rgba(255,255,255,0.1)}
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(28,28,30,0.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn 250ms ease both}
+    .modal-box{background:#fff;border-radius:2rem;max-width:720px;width:100%;max-height:90dvh;overflow:auto;animation:scaleIn 380ms var(--spring) both}
+    /* Checkout field */
+    .checkout-field{width:100%;border:1.5px solid rgba(232,221,208,0.85);padding:13px 18px;border-radius:14px;font-family:var(--fb);font-size:14px;background:#fff;outline:none;color:var(--dark);transition:border-color 250ms ease,box-shadow 250ms ease}
+    .checkout-field:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(139,105,20,0.08)}
+    /* Trust rows */
+    .trust-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mid)}
+    .trust-dot{width:4px;height:4px;background:var(--gold-mid);border-radius:50%;flex-shrink:0}
+    /* Footer */
+    .site-footer{border-top:1px solid var(--border);padding:56px 0 36px}
+    /* Toast */
+    .toast-container{position:fixed;bottom:24px;right:24px;z-index:500;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+    .toast{background:var(--dark);color:#fff;padding:12px 20px;border-radius:100px;font-size:13px;font-family:var(--fb);display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(28,28,30,0.22);animation:slideUp 320ms var(--spring) both;min-width:220px}
+    .toast-gold{background:linear-gradient(135deg,var(--gold),var(--gold-mid))}
+    /* Search overlay */
+    .search-overlay{position:fixed;inset:0;background:rgba(250,248,244,0.97);backdrop-filter:blur(28px);z-index:300;display:flex;flex-direction:column;padding:28px 24px;animation:fadeIn 200ms ease both;overflow-y:auto}
+    .search-input-wrap{max-width:760px;margin:0 auto;width:100%}
+    .search-input{width:100%;font-size:clamp(1.8rem,5vw,3rem);font-family:var(--fd);font-weight:600;background:none;border:none;outline:none;color:var(--dark);padding:12px 0;border-bottom:2px solid var(--border-md)}
+    .search-input::placeholder{color:rgba(28,28,30,0.18)}
+    /* Testimonials */
+    .testimonial-card{background:#fff;border:1px solid var(--border);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform 400ms var(--expo),box-shadow 400ms var(--expo)}
+    .testimonial-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(139,105,20,0.09)}
+    .t-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold-pale),#ede0cf);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:700;font-size:1.15rem;color:var(--gold);flex-shrink:0}
+    /* Step indicator */
+    .step-indicator{display:flex;align-items:center;gap:4px}
+    .step-item{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:500;font-family:var(--fb);color:var(--mid)}
+    .step-item.active{color:var(--dark)}
+    .step-item.done{color:var(--gold)}
+    .step-dot{width:26px;height:26px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;transition:background 250ms,border-color 250ms}
+    .step-item.active .step-dot,.step-item.done .step-dot{background:currentColor;color:#fff;border-color:currentColor}
+    .step-line{width:32px;height:1px;background:var(--border-md);margin:0 2px}
+    /* Story page */
+    .story-hero{background:linear-gradient(150deg,#f5ece0 0%,#ede0cf 35%,#f2e8dc 70%);padding:clamp(80px,12vw,140px) 24px clamp(60px,10vw,100px);text-align:center;position:relative;overflow:hidden}
+    /* Wishlist heart */
+    .heart-btn{padding:8px;background:transparent;border:none;border-radius:10px;display:flex;transition:background 200ms,transform 300ms var(--spring)}
+    .heart-btn:hover{background:rgba(139,105,20,0.07);transform:scale(1.15)}
+    .heart-btn.active svg{fill:#EF4444;stroke:#EF4444}
+    /* Empty state */
+    .empty-state{background:#fff;border-radius:2rem;padding:72px 32px;text-align:center;border:1px solid var(--border)}
+    /* Card field row */
+    .field-row{display:grid;gap:12px}
+    /* Mobile */
+    @media(max-width:768px){
+      .nav-pill{padding:10px 12px 10px 18px}
+      .btn-dark,.btn-ghost,.btn-amber,.btn-gold{width:100%}
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef, useCallback } = React;
+const {
+  ShoppingCart, Search, Heart, Menu, X, Star, Minus, Plus,
+  Check, Mail, Gift, Lock, TrendingUp, DollarSign, Users, Sparkles,
+  Package, Shield, RotateCcw, ArrowRight, MapPin, CreditCard,
+  ChevronRight, Truck, RefreshCw, Leaf, Award, BookOpen
+} = lucideReact;
+
+/* ── Data ── */
+const OWN_PRODUCTS = [
+  { id:1,  name:'Luminous Foundation',       category:'Face',     price:58, cost:18, rating:4.9, reviews:312,  badge:'', image:'https://images.unsplash.com/photo-1599505777519-8f5aae4ee3d5?w=600&h=600&fit=crop', description:'Weightless liquid foundation with a natural luminous finish. Buildable coverage that feels like skincare. Formulated with hyaluronic acid and vitamin E.', shade:'Light Beige', type:'own' },
+  { id:2,  name:'Silk Glow Primer',          category:'Face',     price:42, cost:14, rating:4.8, reviews:198,  badge:'', image:'https://images.unsplash.com/photo-1598122035709-cd4628902d4a?w=600&h=600&fit=crop', description:'Creates a smooth, poreless base that holds makeup all day while deeply hydrating your skin. Infused with botanical extracts.', type:'own' },
+  { id:3,  name:'Velvet Lip Luxe',           category:'Lips',     price:36, cost:12, rating:4.9, reviews:428,  badge:'', image:'https://images.unsplash.com/photo-1599928644025-92b4b3434ae5?w=600&h=600&fit=crop', description:'Ultra-smooth satin finish with 12-hour wear. Enriched with botanical oils for lasting comfort and a rich colour payoff.', shade:'Classic Red', type:'own' },
+  { id:4,  name:'Aura Palette Pro',          category:'Eyes',     price:62, cost:22, rating:4.8, reviews:389,  badge:'', image:'https://images.unsplash.com/photo-1599928645181-07d7e93e3e2f?w=600&h=600&fit=crop', description:'16 curated shades from matte to metallic. From everyday warmth to dramatic evening looks. Buttery smooth formula.', type:'own' },
+  { id:5,  name:'Essence Serum Gold',        category:'Skincare', price:68, cost:24, rating:4.9, reviews:456,  badge:'NEW', image:'https://images.unsplash.com/photo-1578236430803-1fbfc9e0b5f9?w=600&h=600&fit=crop', description:'Concentrated hyaluronic acid serum with gold peptides. Plumps and restores luminosity overnight. Dermatologist tested.', type:'own' },
+  { id:6,  name:'Night Renewal Cream',       category:'Skincare', price:72, cost:26, rating:4.8, reviews:334,  badge:'', image:'https://images.unsplash.com/photo-1576207585506-81c50c788b25?w=600&h=600&fit=crop', description:'Rich night cream with encapsulated retinol and niacinamide. Wake up to visibly renewed, plumper skin.', type:'own' },
+  { id:7,  name:'Luxe Brush Set',            category:'Tools',    price:75, cost:28, rating:4.9, reviews:267,  badge:'', image:'https://images.unsplash.com/photo-1584702089829-abc5e0e2b62f?w=600&h=600&fit=crop', description:'8-piece professional synthetic brush set. Soft, precise, and cruelty-free craftsmanship. Includes full-coverage, blending, and detail brushes.', type:'own' },
+  { id:8,  name:'Glow Setting Powder',       category:'Face',     price:38, cost:13, rating:4.7, reviews:267,  badge:'', image:'https://images.unsplash.com/photo-1599505777519-8f5aae4ee3d5?w=600&h=600&fit=crop', description:'Finely milled translucent powder that sets makeup for 16 hours without flashback. Suitable for all skin tones.', type:'own' },
+  { id:9,  name:'Sculpt & Define Palette',   category:'Face',     price:52, cost:18, rating:4.9, reviews:405,  badge:'', image:'https://images.unsplash.com/photo-1596217281514-bac34e009abb?w=600&h=600&fit=crop', description:'6 harmonious contour shades for every skin tone. Sculpt, bronze, and highlight effortlessly with silky-smooth formula.', type:'own' },
+  { id:10, name:'Precision Liquid Liner',    category:'Eyes',     price:28, cost:9,  rating:4.9, reviews:312,  badge:'', image:'https://images.unsplash.com/photo-1599505777519-8f5aae4ee3d5?w=600&h=600&fit=crop', description:'Ultra-fine liquid liner with 24-hour wear. Waterproof, smudge-proof, and intensely pigmented for perfect precision.', type:'own' },
+  { id:11, name:'Rose Petal Lip Gloss',      category:'Lips',     price:32, cost:10, rating:4.7, reviews:189,  badge:'NEW', image:'https://images.unsplash.com/photo-1622202558854-5a6a9fc9c68c?w=600&h=600&fit=crop', description:'High-shine, non-sticky gloss infused with rose extract and vitamin E. Plumps lips for a fuller, radiant look.', shade:'Rose Nude', type:'own' },
+  { id:12, name:'Vitamin C Radiance Serum',  category:'Skincare', price:65, cost:22, rating:4.8, reviews:244,  badge:'NEW', image:'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=600&fit=crop', description:'Stabilised 15% vitamin C serum that brightens, evens skin tone, and protects against environmental stress. Fragrance-free.', type:'own' },
+  { id:13, name:'Noir Intense Mascara',      category:'Eyes',     price:34, cost:11, rating:4.8, reviews:378,  badge:'', image:'https://images.unsplash.com/photo-1556228720-da07e5ee394c?w=600&h=600&fit=crop', description:'Volumising and lengthening mascara with a curved brush for maximum lift. Waterproof formula. Buildable, no clumping.', type:'own' },
+  { id:14, name:'Hydra Plump Eye Cream',     category:'Skincare', price:78, cost:28, rating:4.9, reviews:156,  badge:'NEW', image:'https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=600&h=600&fit=crop', description:'Peptide-rich eye cream that firms, depuffs and deeply hydrates the delicate eye area. Visible results in 14 days.', type:'own' },
+];
+
+const AFFILIATE_PRODUCTS = [
+  { id:101, name:'Sephora Favorites Set',     category:'Bundles',  price:45, commission:18, rating:4.7, reviews:892,  badge:'', image:'https://images.unsplash.com/photo-1586495777744-4e6232bf4c82?w=600&h=600&fit=crop', description:'Curated beauty discovery box with full-size bestsellers from top prestige brands.', affiliate:'Sephora',       type:'affiliate', link:'https://www.sephora.com?ref=aura-luxe' },
+  { id:102, name:'Ulta Beauty Skincare Kit',  category:'Skincare', price:55, commission:15, rating:4.6, reviews:567,  badge:'', image:'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=600&fit=crop', description:'Premium skincare starter set. Cleanse, treat, and protect your skin with five essential steps.', affiliate:'Ulta',          type:'affiliate', link:'https://www.ulta.com?ref=aura-luxe' },
+  { id:103, name:'Pro Artist Brush Kit',      category:'Tools',    price:32, commission:15, rating:4.5, reviews:1203, badge:'', image:'https://images.unsplash.com/photo-1584702089829-abc5e0e2b62f?w=600&h=600&fit=crop', description:'Professional 12-piece synthetic brush kit loved by thousands of makeup artists worldwide.', affiliate:'Amazon',       type:'affiliate', link:'https://amazon.com?tag=aura-luxe-20' },
+  { id:104, name:'Cult Beauty Edit Box',      category:'Bundles',  price:75, commission:12, rating:4.8, reviews:445,  badge:'EXCLUSIEF', image:'https://images.unsplash.com/photo-1599928644025-92b4b3434ae5?w=600&h=600&fit=crop', description:'Exclusive edit of cult favorites. Limited edition quarterly box curated by top beauty editors.', affiliate:'Cult Beauty',  type:'affiliate', link:'https://cultbeauty.com?ref=aura-luxe' },
+  { id:105, name:'Space NK Luxury Bundle',    category:'Bundles',  price:68, commission:12, rating:4.7, reviews:334,  badge:'', image:'https://images.unsplash.com/photo-1599928645181-07d7e93e3e2f?w=600&h=600&fit=crop', description:"Expertly curated luxury bundle from Space NK's top-rated picks. Skin, lips and eyes covered.", affiliate:'Space NK',     type:'affiliate', link:'https://spacenk.com?ref=aura-luxe' },
+  { id:106, name:'Lookfantastic Beauty Box',  category:'Bundles',  price:50, commission:11, rating:4.6, reviews:623,  badge:'', image:'https://images.unsplash.com/photo-1578236430803-1fbfc9e0b5f9?w=600&h=600&fit=crop', description:'Monthly luxury beauty box — always a surprise, always premium. Worth over €100 every month.', affiliate:'Lookfantastic', type:'affiliate', link:'https://lookfantastic.com?ref=aura-luxe' },
+  { id:107, name:'Charlotte Tilbury Icons',   category:'Face',     price:89, commission:14, rating:4.9, reviews:712,  badge:'BESTSELLER', image:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=600&fit=crop', description:'Iconic full-coverage foundation trio from the legendary Charlotte Tilbury. Hollywood Flawless finish.', affiliate:'Charlotte Tilbury', type:'affiliate', link:'https://charlottetilbury.com?ref=aura-luxe' },
+  { id:108, name:'Fenty Beauty Starter Set',  category:'Face',     price:72, commission:13, rating:4.8, reviews:534,  badge:'', image:'https://images.unsplash.com/photo-1631730486784-74757d38e27f?w=600&h=600&fit=crop', description:"Rihanna's award-winning foundation, concealer and gloss set. 40 shades for all skin tones.", affiliate:'Fenty Beauty',  type:'affiliate', link:'https://fentybeauty.com?ref=aura-luxe' },
+];
+
+const TESTIMONIALS = [
+  { name:'Emma Vandenberghe', initials:'EV', role:'Beauty editor', rating:5, product:'Essence Serum Gold', quote:'Mijn huid was nog nooit zo stralend. Na twee weken gebruik van de Essence Serum Gold zie ik een duidelijk verschil — vollere, glanzende en egale huid. Een absolute aanrader.' },
+  { name:'Lisa Desmet',       initials:'LD', role:'Make-up artist',  rating:5, product:'Aura Palette Pro',  quote:'De Aura Palette Pro is een must-have voor elke make-up tas. De pigmentatie is ongeëvenaard en de kleuren zijn zo mooi op elkaar afgestemd. Gebruikt hem dagelijks.' },
+  { name:'Sophie Maes',       initials:'SM', role:'Blogger',         rating:5, product:'Luminous Foundation', quote:'Eindelijk een foundation die echt bij mijn huidskleur past. Lichte dekking, maar buildable — en hij zit de hele dag. AURA LUXE heeft echt iets unieks gemaakt.' },
+  { name:'Nathalie Baert',    initials:'NB', role:'Klant',           rating:5, product:'Luxe Brush Set',   quote:'De kwastenset is van een kwaliteit die ik nog nooit eerder voor deze prijs heb gezien. Zacht, precies en duurzaam. Mijn oude kwastenset ligt nu definitief in de kast.' },
+];
+
+const PHIL = [
+  { icon:'✦', title:'AURA Crafted',  desc:'70% van onze collectie — handgeselecteerd, zorgvuldig geformuleerd voor jouw unieke glow.', points:['Premium formules','Duurzame sourcing','Direct van de maker'] },
+  { icon:'🤝', title:'Partner Picks', desc:'30% wereldwijd gecureerd — handpicked bundles van vertrouwde partners die onze visie delen.', points:['Wereldklasse merken','Vertrouwde partners','Transparante commissie'] },
+  { icon:'♡',  title:'Pure Luxe',     desc:'Een eerlijke mix van ambacht en curatie. Elk product staat voor ons engagement met jou.', points:['Luxe toegankelijk','Doordachte selectie','Klant centraal'] },
+];
+
+const ANNOUNCEMENTS = 'GRATIS VERZENDING BOVEN €150  ✦  NIEUW: ESSENCE SERUM GOLD  ✦  15% KORTING BIJ INSCHRIJVING  ✦  CRUELTY-FREE & VEGAN  ✦  30 DAGEN RETOUR  ✦  VERTROUWD DOOR 12.000+ LOVERS  ✦  ';
+
+/* ── Scroll reveal hook ── */
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { el.classList.add('visible'); obs.disconnect(); } },
+      { threshold: 0.08 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return ref;
+}
+
+/* ── Components ── */
+function AnnouncementBar() {
+  return (
+    <div className="ann-bar" aria-hidden="true">
+      <div className="ann-track">
+        <span>{ANNOUNCEMENTS}</span>
+        <span>{ANNOUNCEMENTS}</span>
+      </div>
+    </div>
+  );
+}
+
+function Stars({ rating, size = 'sm' }) {
+  const s = size === 'lg' ? 'w-4 h-4' : 'w-3 h-3';
+  return (
+    <div className="flex gap-0.5">
+      {[...Array(5)].map((_, i) => (
+        <Star key={i} className={`${s} ${i < Math.floor(rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-200'}`} />
+      ))}
+    </div>
+  );
+}
+
+function Toast({ toasts }) {
+  return (
+    <div className="toast-container" aria-live="polite">
+      {toasts.map(t => (
+        <div key={t.id} className={`toast ${t.type === 'gold' ? 'toast-gold' : ''}`}>
+          {t.type === 'gold' ? <Sparkles className="w-4 h-4 flex-shrink-0" /> : <Check className="w-4 h-4 flex-shrink-0" />}
+          {t.msg}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function PhilCard({ icon, title, desc, points }) {
+  const ref = useReveal();
+  return (
+    <div className="phil-shell reveal" ref={ref}>
+      <div className="phil-inner">
+        <div className="phil-icon" style={{fontSize:'1.5rem'}}>{icon}</div>
+        <h3 style={{fontFamily:'var(--fd)',fontSize:'1.55rem',fontWeight:'600',marginBottom:'10px'}}>{title}</h3>
+        <p style={{fontSize:'13px',color:'var(--mid)',marginBottom:'18px',lineHeight:'1.7'}}>{desc}</p>
+        <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:'8px'}}>
+          {points.map(p => (
+            <li key={p} className="trust-row" style={{justifyContent:'center'}}>
+              <span className="trust-dot" /><span>{p}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function TestimonialCard({ t }) {
+  const ref = useReveal();
+  return (
+    <article className="testimonial-card reveal" ref={ref}>
+      <div className="flex gap-0.5">
+        {[...Array(t.rating)].map((_,i) => (
+          <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400"/>
+        ))}
+      </div>
+      <p style={{fontSize:'14px',lineHeight:'1.75',color:'var(--dark)',fontStyle:'italic',flex:1}}>"{t.quote}"</p>
+      <div style={{display:'flex',alignItems:'center',gap:'12px',paddingTop:'12px',borderTop:'1px solid var(--border)'}}>
+        <div className="t-avatar">{t.initials}</div>
+        <div>
+          <p style={{fontWeight:'600',fontSize:'14px',fontFamily:'var(--fd)'}}>{t.name}</p>
+          <p style={{fontSize:'11px',color:'var(--mid)',fontFamily:'var(--fb)'}}>{t.role} · via <em style={{color:'var(--gold)',fontStyle:'normal'}}>{t.product}</em></p>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ProductCard({ product, onClick, onAdd, onWishlist, inWishlist }) {
+  const ref = useReveal();
+  return (
+    <article className="card-shell reveal" ref={ref} onClick={() => onClick(product)}>
+      <div className="card-inner">
+        <div className="card-img" style={{position:'relative'}}>
+          <img src={product.image} alt={product.name} loading="lazy" />
+          <div style={{position:'absolute',top:'12px',right:'12px',background:'rgba(255,255,255,0.92)',backdropFilter:'blur(10px)',padding:'4px 12px',borderRadius:'100px',fontSize:'13px',fontWeight:'700',color:'var(--dark)',fontFamily:'var(--fb)'}}>
+            €{product.price}
+          </div>
+          <div style={{position:'absolute',top:'12px',left:'12px',display:'flex',flexDirection:'column',gap:'5px'}}>
+            <span className={`badge ${product.type==='own'?'badge-own':'badge-prt'}`}>
+              {product.type==='own'?'AURA LUXE':'PARTNER'}
+            </span>
+            {product.badge && <span className="badge badge-new">{product.badge}</span>}
+          </div>
+          <button
+            className={`heart-btn ${inWishlist?'active':''}`}
+            style={{position:'absolute',bottom:'10px',right:'10px',background:'rgba(255,255,255,0.88)',backdropFilter:'blur(8px)',borderRadius:'50%',width:'34px',height:'34px'}}
+            onClick={e => { e.stopPropagation(); onWishlist(product); }}
+            aria-label={inWishlist?'Verwijder uit verlanglijst':'Voeg toe aan verlanglijst'}
+          >
+            <Heart className={`w-4 h-4 ${inWishlist?'fill-red-500 text-red-500':'text-gray-500'}`} />
+          </button>
+        </div>
+        <div style={{padding:'18px 18px 22px'}}>
+          <p style={{fontSize:'10px',color:'var(--mid)',letterSpacing:'2.5px',textTransform:'uppercase',marginBottom:'6px',fontWeight:'500',fontFamily:'var(--fb)'}}>{product.category}</p>
+          <h3 style={{fontFamily:'var(--fd)',fontSize:'1.15rem',fontWeight:'600',lineHeight:'1.2',marginBottom:'6px'}}>{product.name}</h3>
+          {product.affiliate && <p style={{fontSize:'11px',color:'#c9956d',fontWeight:'500',marginBottom:'6px',fontFamily:'var(--fb)'}}>via {product.affiliate}</p>}
+          <div style={{display:'flex',alignItems:'center',gap:'6px',marginBottom:'14px'}}>
+            <Stars rating={product.rating} />
+            <span style={{fontSize:'11px',color:'var(--mid)',fontFamily:'var(--fb)'}}>({product.reviews.toLocaleString()})</span>
+          </div>
+          {product.type==='affiliate' ? (
+            <button className="btn btn-amber" style={{fontSize:'12px',letterSpacing:'0.5px'}}
+              onClick={e => { e.stopPropagation(); onAdd(product); }}>
+              Ontdekken bij {product.affiliate}
+            </button>
+          ) : (
+            <button className="btn btn-dark" style={{width:'100%',fontSize:'12px'}}
+              onClick={e => { e.stopPropagation(); onAdd(product); }}>
+              Voeg toe
+              <span className="btn-icon"><ArrowRight className="w-3 h-3" /></span>
+            </button>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+/* ── Main App ── */
+function App() {
+  const [cart,            setCart]            = useState([]);
+  const [wishlist,        setWishlist]        = useState([]);
+  const [toasts,          setToasts]          = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [mobileOpen,      setMobileOpen]      = useState(false);
+  const [view,            setView]            = useState('shop');
+  const [searchOpen,      setSearchOpen]      = useState(false);
+  const [searchQuery,     setSearchQuery]     = useState('');
+  const [nlEmail,         setNlEmail]         = useState('');
+  const [nlSuccess,       setNlSuccess]       = useState(false);
+  const [filterCat,       setFilterCat]       = useState('all');
+  const [filterType,      setFilterType]      = useState('all');
+  const [showDash,        setShowDash]        = useState(false);
+  const [checkoutStep,    setCheckoutStep]    = useState(1);
+  const [orderNumber,     setOrderNumber]     = useState('');
+  const [shippingInfo,    setShippingInfo]    = useState({ voornaam:'', achternaam:'', email:'', adres:'', postcode:'', stad:'', land:'België' });
+  const [payInfo,         setPayInfo]         = useState({ card:'', expiry:'', cvc:'', name:'' });
+
+  const heroRef = useReveal();
+  const searchRef = useRef(null);
+
+  const addToast = useCallback((msg, type='') => {
+    const id = Date.now();
+    setToasts(prev => [...prev, { id, msg, type }]);
+    setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 3200);
+  }, []);
+
+  useEffect(() => {
+    if (searchOpen && searchRef.current) searchRef.current.focus();
+  }, [searchOpen]);
+
+  useEffect(() => {
+    document.body.style.overflow = (searchOpen || mobileOpen || selectedProduct) ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [searchOpen, mobileOpen, selectedProduct]);
+
+  const allProducts = [...OWN_PRODUCTS, ...AFFILIATE_PRODUCTS];
+  const categories  = ['all', ...new Set(allProducts.map(p => p.category))];
+
+  let filtered = allProducts;
+  if (filterType !== 'all') filtered = filtered.filter(p => p.type === filterType);
+  if (filterCat  !== 'all') filtered = filtered.filter(p => p.category === filterCat);
+
+  const searchResults = searchQuery.trim().length > 0
+    ? allProducts.filter(p =>
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (p.description && p.description.toLowerCase().includes(searchQuery.toLowerCase()))
+      )
+    : [];
+
+  const addToCart = product => {
+    if (product.type === 'affiliate') {
+      window.open(product.link, '_blank', 'noopener noreferrer');
+      return;
+    }
+    setCart(prev => {
+      const ex = prev.find(i => i.id === product.id);
+      if (ex) return prev.map(i => i.id === product.id ? {...i, quantity:i.quantity+1} : i);
+      return [...prev, { id:product.id, name:product.name, price:product.price, quantity:1, image:product.image }];
+    });
+    addToast(`${product.name} toegevoegd aan winkelwagen ✦`, 'gold');
+    setSelectedProduct(null);
+    setSearchOpen(false);
+  };
+
+  const toggleWishlist = product => {
+    const isIn = wishlist.find(p => p.id === product.id);
+    if (isIn) {
+      setWishlist(prev => prev.filter(p => p.id !== product.id));
+      addToast(`${product.name} verwijderd uit verlanglijst`);
+    } else {
+      setWishlist(prev => [...prev, product]);
+      addToast(`${product.name} toegevoegd aan verlanglijst ♡`, 'gold');
+    }
+  };
+
+  const removeFromCart = id => setCart(c => c.filter(i => i.id !== id));
+  const updateQty = (id, q) => q <= 0 ? removeFromCart(id) : setCart(c => c.map(i => i.id === id ? {...i,quantity:q} : i));
+
+  const cartCount    = cart.reduce((s,i) => s+i.quantity, 0);
+  const subtotal     = cart.reduce((s,i) => s+i.price*i.quantity, 0);
+  const tax          = subtotal*0.21;
+  const shipping     = subtotal > 150 ? 0 : 9.95;
+  const total        = subtotal + tax + shipping;
+  const wishlistCount = wishlist.length;
+
+  const ownProfit = cart.filter(i => OWN_PRODUCTS.find(p => p.id===i.id)).reduce((s,i) => {
+    const p = OWN_PRODUCTS.find(p => p.id===i.id); return s+(p.price-p.cost)*i.quantity;
+  }, 0);
+  const affRev = cart.filter(i => AFFILIATE_PRODUCTS.find(p => p.id===i.id)).reduce((s,i) => {
+    const p = AFFILIATE_PRODUCTS.find(p => p.id===i.id); return s+(p.price*p.commission/100)*i.quantity;
+  }, 0);
+  const ownRevenue = cart.filter(i => OWN_PRODUCTS.find(p => p.id===i.id)).reduce((s,i) => s+i.price*i.quantity, 0);
+
+  const handleNl = () => {
+    if (!nlEmail) return;
+    setNlSuccess(true);
+    addToast('Welkom bij de AURA Circle — check je inbox! ✦', 'gold');
+    setTimeout(() => { setNlSuccess(false); setNlEmail(''); }, 4000);
+  };
+
+  const handleCheckoutPay = () => {
+    if (!payInfo.card || !payInfo.expiry || !payInfo.cvc || !payInfo.name) {
+      addToast('Vul alle betalingsgegevens in');
+      return;
+    }
+    const num = 'AL-' + Date.now().toString().slice(-8).toUpperCase();
+    setOrderNumber(num);
+    setView('success');
+    setCart([]);
+    setCheckoutStep(1);
+    setShippingInfo({ voornaam:'', achternaam:'', email:'', adres:'', postcode:'', stad:'', land:'België' });
+    setPayInfo({ card:'', expiry:'', cvc:'', name:'' });
+  };
+
+  const navItems = [
+    { label:'Shop', fn:()=>setView('shop') },
+    { label:'Verhaal', fn:()=>setView('story') },
+    { label:'Impact', fn:()=>setShowDash(s=>!s) },
+    { label:'Word lid', fn:()=>{ setView('shop'); setTimeout(()=>document.getElementById('newsletter')?.scrollIntoView({behavior:'smooth'}),100); } },
+  ];
+
+  /* ── Render ── */
+  return (
+    <div style={{background:'var(--cream)',minHeight:'100dvh'}}>
+      <AnnouncementBar />
+      <Toast toasts={toasts} />
+
+      {/* ── Island Nav ── */}
+      <div className="nav-island" style={{paddingTop:'12px',marginBottom:'0'}}>
+        <div className="nav-pill">
+          <button onClick={()=>setView('shop')} style={{flexShrink:0,background:'none',border:'none',padding:0,textAlign:'left'}}>
+            <h1 style={{fontFamily:'var(--fd)',fontSize:'1.8rem',fontWeight:'700',color:'var(--gold)',lineHeight:'1',letterSpacing:'-0.01em'}}>AURA</h1>
+            <p style={{fontSize:'9px',letterSpacing:'4px',fontWeight:'500',color:'var(--mid)',fontFamily:'var(--fb)',marginTop:'1px'}}>LUXE</p>
+          </button>
+
+          <nav className="hidden md:flex" style={{gap:'28px',flex:1,justifyContent:'center'}}>
+            {navItems.map(({label,fn}) => (
+              <button key={label} onClick={fn} style={{fontSize:'13px',fontWeight:'500',color:'var(--dark)',border:'none',background:'none',fontFamily:'var(--fb)',cursor:'pointer',transition:'opacity 200ms'}}
+                onMouseEnter={e=>e.target.style.opacity='0.4'} onMouseLeave={e=>e.target.style.opacity='1'}>{label}</button>
+            ))}
+          </nav>
+
+          <div style={{display:'flex',alignItems:'center',gap:'2px'}}>
+            <button onClick={()=>setSearchOpen(true)} aria-label="Zoeken" style={{padding:'9px',borderRadius:'12px',border:'none',background:'transparent',color:'var(--dark)',display:'flex',transition:'background 200ms'}}
+              onMouseEnter={e=>e.currentTarget.style.background='rgba(139,105,20,0.07)'} onMouseLeave={e=>e.currentTarget.style.background='transparent'}><Search className="w-4 h-4"/></button>
+
+            <button onClick={()=>setView('wishlist')} aria-label="Verlanglijst" style={{position:'relative',padding:'9px',borderRadius:'12px',border:'none',background:'transparent',color:'var(--dark)',display:'flex',transition:'background 200ms'}}
+              onMouseEnter={e=>e.currentTarget.style.background='rgba(139,105,20,0.07)'} onMouseLeave={e=>e.currentTarget.style.background='transparent'}>
+              <Heart className="w-4 h-4"/>
+              {wishlistCount > 0 && <span style={{position:'absolute',top:'4px',right:'4px',background:'#EF4444',color:'#fff',fontSize:'9px',borderRadius:'50%',width:'15px',height:'15px',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:'700',fontFamily:'var(--fb)'}}>{wishlistCount}</span>}
+            </button>
+
+            <button onClick={()=>{setView('checkout');setCheckoutStep(1);}} aria-label="Winkelwagen" style={{position:'relative',padding:'9px',borderRadius:'12px',border:'none',background:'transparent',color:'var(--dark)',display:'flex',transition:'background 200ms'}}
+              onMouseEnter={e=>e.currentTarget.style.background='rgba(139,105,20,0.07)'} onMouseLeave={e=>e.currentTarget.style.background='transparent'}>
+              <ShoppingCart className="w-4 h-4"/>
+              {cartCount > 0 && <span style={{position:'absolute',top:'4px',right:'4px',background:'var(--gold)',color:'#fff',fontSize:'9px',borderRadius:'50%',width:'15px',height:'15px',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:'700',fontFamily:'var(--fb)'}}>{cartCount}</span>}
+            </button>
+
+            <button className="md:hidden" onClick={()=>setMobileOpen(o=>!o)} style={{padding:'9px',borderRadius:'12px',border:'none',background:'transparent',color:'var(--dark)',display:'flex'}}>
+              {mobileOpen ? <X className="w-4 h-4"/> : <Menu className="w-4 h-4"/>}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div style={{position:'fixed',inset:0,background:'rgba(250,248,244,0.97)',backdropFilter:'blur(28px)',zIndex:150,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'28px',animation:'fadeIn 250ms ease both'}}>
+          <button onClick={()=>setMobileOpen(false)} style={{position:'absolute',top:'20px',right:'20px',padding:'10px',borderRadius:'50%',border:'none',background:'rgba(28,28,30,0.07)',cursor:'pointer'}}><X className="w-5 h-5"/></button>
+          {[...navItems, {label:'Verlanglijst', fn:()=>setView('wishlist')}, {label:'Winkelwagen', fn:()=>{setView('checkout');setCheckoutStep(1);}}].map(({label,fn},i)=>(
+            <button key={label} onClick={()=>{fn();setMobileOpen(false);}} style={{fontFamily:'var(--fd)',fontSize:'clamp(2.2rem,8vw,3rem)',fontWeight:'600',color:'var(--dark)',border:'none',background:'none',cursor:'pointer',lineHeight:'1.1',animation:`fadeIn 400ms ease ${i*80+80}ms both`}}>{label}</button>
+          ))}
+        </div>
+      )}
+
+      {/* Search overlay */}
+      {searchOpen && (
+        <div className="search-overlay" onClick={()=>setSearchOpen(false)}>
+          <div className="search-input-wrap" onClick={e=>e.stopPropagation()}>
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'8px'}}>
+              <span style={{fontSize:'11px',color:'var(--mid)',letterSpacing:'2px',textTransform:'uppercase',fontFamily:'var(--fb)'}}>Zoeken</span>
+              <button onClick={()=>setSearchOpen(false)} style={{padding:'8px',border:'none',background:'rgba(28,28,30,0.06)',borderRadius:'50%',cursor:'pointer'}}><X className="w-4 h-4"/></button>
+            </div>
+            <input
+              ref={searchRef}
+              className="search-input"
+              placeholder="Foundation, serum, ogen..."
+              value={searchQuery}
+              onChange={e=>setSearchQuery(e.target.value)}
+            />
+            {searchQuery && (
+              <div style={{marginTop:'32px'}}>
+                {searchResults.length === 0 ? (
+                  <p style={{color:'var(--mid)',fontFamily:'var(--fb)'}}>Geen resultaten voor "{searchQuery}"</p>
+                ) : (
+                  <>
+                    <p style={{fontSize:'12px',color:'var(--mid)',marginBottom:'20px',fontFamily:'var(--fb)'}}>{searchResults.length} resultaten voor "{searchQuery}"</p>
+                    <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(200px,1fr))',gap:'16px'}}>
+                      {searchResults.map(p => (
+                        <div key={p.id} style={{display:'flex',gap:'12px',alignItems:'center',background:'#fff',borderRadius:'16px',padding:'12px',cursor:'pointer',border:'1px solid var(--border)',transition:'box-shadow 250ms'}}
+                          onClick={()=>{setSearchQuery('');setSearchOpen(false);setSelectedProduct(p);}}
+                          onMouseEnter={e=>e.currentTarget.style.boxShadow='0 8px 24px rgba(139,105,20,0.1)'}
+                          onMouseLeave={e=>e.currentTarget.style.boxShadow='none'}>
+                          <img src={p.image} alt={p.name} style={{width:'52px',height:'52px',objectFit:'cover',borderRadius:'10px',flexShrink:0}}/>
+                          <div>
+                            <p style={{fontFamily:'var(--fd)',fontWeight:'600',fontSize:'0.95rem',lineHeight:'1.2'}}>{p.name}</p>
+                            <p style={{fontSize:'11px',color:'var(--mid)',fontFamily:'var(--fb)',marginTop:'2px'}}>{p.category}</p>
+                            <p style={{fontSize:'13px',fontWeight:'700',color:'var(--gold)',fontFamily:'var(--fd)',marginTop:'4px'}}>€{p.price}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+            {!searchQuery && (
+              <div style={{marginTop:'28px',display:'flex',flexWrap:'wrap',gap:'8px'}}>
+                {['Serum','Foundation','Ogen','Skincare','Brushes','Bundels'].map(q=>(
+                  <button key={q} className="pill" onClick={()=>setSearchQuery(q)}>{q}</button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Dashboard */}
+      {showDash && (
+        <div className="dash-bg">
+          <div style={{maxWidth:'1120px',margin:'0 auto',padding:'0 24px'}}>
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'32px',flexWrap:'wrap',gap:'12px'}}>
+              <h2 style={{fontFamily:'var(--fd)',fontSize:'clamp(1.8rem,4vw,2.6rem)',fontWeight:'600'}}>
+                AURA <span className="gold-shimmer">Impact</span>
+              </h2>
+              <button onClick={()=>setShowDash(false)} style={{padding:'8px',border:'1px solid rgba(255,255,255,0.15)',borderRadius:'10px',background:'transparent',cursor:'pointer',color:'rgba(255,255,255,0.6)'}}><X className="w-4 h-4"/></button>
+            </div>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(210px,1fr))',gap:'14px'}}>
+              {[
+                {label:'Eigen Omzet',       value:`€${ownRevenue.toFixed(2)}`, sub:'70% van mix',     icon:<Sparkles className="w-4 h-4 text-amber-300"/>},
+                {label:'Winst (Eigen)',      value:`€${ownProfit.toFixed(2)}`,  sub:'~55% marge',      icon:<TrendingUp className="w-4 h-4 text-amber-300"/>},
+                {label:'Partner Commissie', value:`€${affRev.toFixed(2)}`,     sub:'11–18%',           icon:<Users className="w-4 h-4 text-amber-300"/>},
+                {label:'Totaal Impact',     value:`€${(ownProfit+affRev).toFixed(2)}`, sub:'Gecombineerd', icon:<DollarSign className="w-4 h-4 text-amber-300"/>},
+              ].map(c=>(
+                <div key={c.label} className="dash-card">
+                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:'10px'}}>
+                    <span style={{fontSize:'11px',color:'rgba(255,255,255,0.48)',letterSpacing:'0.8px',fontFamily:'var(--fb)'}}>{c.label}</span>{c.icon}
+                  </div>
+                  <p style={{fontSize:'2rem',fontWeight:'700',color:'#fff',fontFamily:'var(--fd)',lineHeight:'1'}}>{c.value}</p>
+                  <p style={{fontSize:'11px',color:'rgba(255,255,255,0.36)',marginTop:'6px',fontFamily:'var(--fb)'}}>{c.sub}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ══ SHOP VIEW ══ */}
+      {view === 'shop' && (
+        <main>
+          {/* Hero */}
+          <div className="hero-wrap">
+            <div className="orb orb-1"/><div className="orb orb-2"/>
+            <div ref={heroRef} className="reveal" style={{maxWidth:'760px',margin:'0 auto',padding:'0 24px',textAlign:'center',position:'relative',zIndex:1}}>
+              <div style={{marginBottom:'24px'}}><span className="eyebrow">✦  Luxury Meets Curation</span></div>
+              <h2 style={{fontFamily:'var(--fd)',fontSize:'clamp(3.2rem,8vw,6.5rem)',fontWeight:'600',color:'var(--dark)',letterSpacing:'-0.02em',lineHeight:'1.02',marginBottom:'20px'}}>
+                Jouw Unieke<br /><em className="gold-shimmer" style={{fontStyle:'italic'}}>Glow</em>
+              </h2>
+              <p style={{fontSize:'clamp(1rem,2vw,1.1rem)',color:'var(--mid)',lineHeight:'1.75',maxWidth:'520px',margin:'0 auto 36px',fontFamily:'var(--fb)'}}>
+                Ontdek onze luxe creaties (70%) en wereldwijd gecureerde partners (30%). Elk product staat voor kwaliteit, intentie en jouw unieke schoonheid.
+              </p>
+              <div style={{display:'flex',gap:'12px',justifyContent:'center',flexWrap:'wrap'}}>
+                <button className="btn btn-dark" onClick={()=>document.getElementById('products')?.scrollIntoView({behavior:'smooth'})}>
+                  Ontdek collectie<span className="btn-icon"><ArrowRight className="w-3 h-3"/></span>
+                </button>
+                <button className="btn btn-ghost" onClick={()=>setView('story')}>Ons Verhaal</button>
+              </div>
+              <div style={{display:'flex',gap:'clamp(20px,4vw,56px)',justifyContent:'center',marginTop:'52px',paddingTop:'32px',borderTop:'1px solid var(--border)'}}>
+                {[['14+','Eigen producten'],['8','Partner merken'],['12K+','Happy lovers'],['★ 4.8','Gemiddelde rating']].map(([n,l])=>(
+                  <div key={l} style={{textAlign:'center'}}>
+                    <p style={{fontFamily:'var(--fd)',fontSize:'clamp(1.4rem,3vw,2rem)',fontWeight:'700',color:'var(--gold)'}}>{n}</p>
+                    <p style={{fontSize:'10px',color:'var(--mid)',letterSpacing:'1.5px',textTransform:'uppercase',fontFamily:'var(--fb)',marginTop:'4px'}}>{l}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Trust bar */}
+          <div style={{background:'#fff',borderBottom:'1px solid var(--border)',padding:'14px 0'}}>
+            <div style={{maxWidth:'1120px',margin:'0 auto',padding:'0 24px',display:'flex',justifyContent:'center',gap:'clamp(20px,4vw,48px)',flexWrap:'wrap'}}>
+              {[[<Truck className="w-4 h-4"/>, 'Gratis verzending boven €150'],[<Shield className="w-4 h-4"/>,'Veilig betalen via Stripe'],[<RotateCcw className="w-4 h-4"/>,'30 dagen retourgarantie'],[<Leaf className="w-4 h-4"/>,'Cruelty-free & vegan']].map(([icon,txt])=>(
+                <div key={txt} className="trust-row" style={{fontSize:'12px',fontWeight:'500'}}>
+                  <span style={{color:'var(--gold)'}}>{icon}</span>
+                  <span>{txt}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Shop */}
+          <div id="products" style={{maxWidth:'1120px',margin:'0 auto',padding:'72px 24px'}}>
+
+            {/* Filters */}
+            <div style={{marginBottom:'48px'}}>
+              <div style={{display:'flex',gap:'8px',flexWrap:'wrap',marginBottom:'12px'}}>
+                {[['all','Alle producten'],['own','✦ AURA Crafted'],['affiliate','🤝 Partner Picks']].map(([v,l])=>(
+                  <button key={v} className={`pill${filterType===v?' active':''}`} onClick={()=>setFilterType(v)}>{l}</button>
+                ))}
+              </div>
+              <div style={{display:'flex',gap:'8px',flexWrap:'wrap'}}>
+                {categories.map(c=>(
+                  <button key={c} className={`pill${filterCat===c?' active':''}`} onClick={()=>setFilterCat(c)}>
+                    {c==='all'?'Alle categorieën':c.charAt(0).toUpperCase()+c.slice(1)}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Grid */}
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(240px,1fr))',gap:'18px',marginBottom:'96px'}}>
+              {filtered.map(p => (
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  onClick={setSelectedProduct}
+                  onAdd={addToCart}
+                  onWishlist={toggleWishlist}
+                  inWishlist={!!wishlist.find(w => w.id===p.id)}
+                />
+              ))}
+            </div>
+
+            {/* Philosophy */}
+            <div style={{marginBottom:'96px'}}>
+              <div style={{textAlign:'center',marginBottom:'52px'}}>
+                <h2 style={{fontFamily:'var(--fd)',fontSize:'clamp(2.2rem,5vw,3.6rem)',fontWeight:'600',color:'var(--dark)',marginBottom:'10px'}}>De AURA Filosofie</h2>
+                <p style={{color:'var(--mid)',fontSize:'0.9rem',maxWidth:'400px',margin:'0 auto',fontFamily:'var(--fb)'}}>Drie pijlers die elk product in onze collectie definiëren</p>
+              </div>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'18px'}}>
+                {PHIL.map(p=><PhilCard key={p.title} {...p}/>)}
+              </div>
+            </div>
+
+            {/* Testimonials */}
+            <div style={{marginBottom:'96px'}}>
+              <div style={{textAlign:'center',marginBottom:'52px'}}>
+                <h2 style={{fontFamily:'var(--fd)',fontSize:'clamp(2rem,5vw,3.2rem)',fontWeight:'600',color:'var(--dark)',marginBottom:'10px'}}>Wat onze community zegt</h2>
+                <p style={{color:'var(--mid)',fontSize:'0.9rem',fontFamily:'var(--fb)'}}>Vertrouwd door 12.000+ beauty lovers</p>
+              </div>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:'18px'}}>
+                {TESTIMONIALS.map(t=><TestimonialCard key={t.name} t={t}/>)}
+              </div>
+            </div>
+
+            {/* Newsletter */}
+            <div id="newsletter" className="nl-wrap">
+              <div className="nl-orb nl-orb-1"/><div className="nl-orb nl-orb-2"/>
+              <div style={{maxWidth:'500px',margin:'0 auto',textAlign:'center',position:'relative',zIndex:1}}>
+                <div style={{width:'46px',height:'46px',background:'rgba(139,105,20,0.18)',borderRadius:'14px',display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto 22px'}}>
+                  <Mail className="w-5 h-5 text-amber-300"/>
+                </div>
+                <h2 style={{fontFamily:'var(--fd)',fontSize:'clamp(1.8rem,4vw,2.8rem)',fontWeight:'600',color:'#fff',marginBottom:'10px'}}>Word lid van de AURA Circle</h2>
+                <p style={{color:'rgba(255,255,255,0.48)',fontSize:'13px',lineHeight:'1.7',marginBottom:'28px',fontFamily:'var(--fb)'}}>
+                  Exclusieve inzichten, 15% korting op je eerste aankoop, en vroege toegang tot limited editions.
+                </p>
+                <div style={{display:'flex',gap:'8px',flexWrap:'wrap'}}>
+                  <input type="email" placeholder="jouw@email.com" value={nlEmail} onChange={e=>setNlEmail(e.target.value)} onKeyDown={e=>e.key==='Enter'&&handleNl()} className="nl-input"/>
+                  <button className="btn btn-gold" onClick={handleNl} style={{flexShrink:0,width:'auto'}}>Aanmelden</button>
+                </div>
+                {nlSuccess && (
+                  <p style={{marginTop:'14px',color:'var(--gold-mid)',fontSize:'13px',display:'flex',alignItems:'center',justifyContent:'center',gap:'6px',fontFamily:'var(--fb)'}}>
+                    <Check className="w-4 h-4"/> Welkom bij AURA — jouw glow wacht!
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </main>
+      )}
+
+      {/* ══ STORY VIEW ══ */}
+      {view === 'story' && (
+        <main>
+          <div className="story-hero">
+            <div className="orb orb-1" style={{opacity:0.6}}/><div className="orb orb-2" style={{opacity:0.6}}/>
+            <div style={{maxWidth:'680px',margin:'0 auto',position:'relative',zIndex:1}}>
+              <div style={{marginBottom:'20px'}}><span className="eyebrow">✦  Ons Verhaal</span></div>
+              <h2 style={{fontFamily:'var(--fd)',fontSize:'clamp(3rem,8vw,5.5rem)',fontWeight:'600',color:'var(--dark)',letterSpacing:'-0.02em',lineHeight:'1.05',marginBottom:'20px'}}>
+                Schoonheid die <em className="gold-shimmer" style={{fontStyle:'italic'}}>verbindt</em>
+              </h2>
+              <p style={{fontSize:'clamp(1rem,2vw,1.15rem)',color:'var(--mid)',lineHeight:'1.8',fontFamily:'var(--fb)'}}>
+                AURA LUXE werd geboren uit één overtuiging: luxe schoonheid moet toegankelijk zijn voor iedereen die haar unieke glans wil omarmen.
+              </p>
+            </div>
+          </div>
+
+          <div style={{maxWidth:'800px',margin:'0 auto',padding:'72px 24px'}}>
+            <button className="btn btn-ghost" onClick={()=>setView('shop')} style={{marginBottom:'48px',width:'auto'}}>← Terug naar shop</button>
+
+            {[
+              { icon:<BookOpen className="w-6 h-6" style={{color:'var(--gold)'}}/>, title:'Hoe het begon', text:'In 2022 startten we AURA LUXE vanuit een simpele frustratie: premium beautyproducten waren óf te duur, óf moeilijk te vinden. We besloten een plek te creëren waar kwaliteit en toegankelijkheid samenkomen — zonder compromissen op formule of ethiek.' },
+              { icon:<Sparkles className="w-6 h-6" style={{color:'var(--gold)'}}/>, title:'De 70/30 Filosofie', text:'70% van onze collectie zijn eigen AURA Crafted producten — met zorg geformuleerd, direct van de maker. 30% zijn Partner Picks: wereldwijd gecureerde bundles van merken die onze waarden delen. Zo bieden we altijd het beste van twee werelden.' },
+              { icon:<Leaf className="w-6 h-6" style={{color:'var(--gold)'}}/>, title:'Onze Engagementen', text:'Elk AURA product is cruelty-free, veganistisch gecertificeerd en gemaakt met duurzaam gesourcede ingrediënten. We geloven dat echte luxe nooit ten koste mag gaan van dieren, mensen of de planeet.' },
+              { icon:<Heart className="w-6 h-6" style={{color:'var(--gold)'}}/>, title:'Community First', text:'12.000+ beauty lovers vertrouwen dagelijks op AURA. We luisteren naar onze community, co-creëren nieuwe producten samen, en zorgen dat elke stem telt. Jij bent de reden waarom AURA LUXE bestaat.' },
+            ].map(({icon,title,text}) => (
+              <div key={title} style={{display:'flex',gap:'24px',marginBottom:'52px',alignItems:'flex-start'}}>
+                <div style={{width:'56px',height:'56px',background:'linear-gradient(135deg,var(--gold-pale),#ede0cf)',borderRadius:'16px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>{icon}</div>
+                <div>
+                  <h3 style={{fontFamily:'var(--fd)',fontSize:'1.6rem',fontWeight:'600',marginBottom:'10px'}}>{title}</h3>
+                  <p style={{color:'var(--mid)',lineHeight:'1.8',fontFamily:'var(--fb)',fontSize:'15px'}}>{text}</p>
+                </div>
+              </div>
+            ))}
+
+            <div style={{background:'linear-gradient(135deg,#f5ece0,#ede0cf)',borderRadius:'24px',padding:'40px',textAlign:'center',border:'1px solid var(--border)'}}>
+              <h3 style={{fontFamily:'var(--fd)',fontSize:'2rem',fontWeight:'600',marginBottom:'12px'}}>Klaar om te gloven?</h3>
+              <p style={{color:'var(--mid)',marginBottom:'24px',fontFamily:'var(--fb)'}}>Ontdek onze volledige collectie en vind jouw signature glow.</p>
+              <button className="btn btn-dark" style={{width:'auto'}} onClick={()=>setView('shop')}>Shop nu<span className="btn-icon"><ArrowRight className="w-3 h-3"/></span></button>
+            </div>
+          </div>
+        </main>
+      )}
+
+      {/* ══ WISHLIST VIEW ══ */}
+      {view === 'wishlist' && (
+        <main style={{maxWidth:'1120px',margin:'0 auto',padding:'52px 24px'}}>
+          <button className="btn btn-ghost" onClick={()=>setView('shop')} style={{marginBottom:'36px',width:'auto'}}>← Terug naar shop</button>
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',marginBottom:'48px',flexWrap:'wrap',gap:'12px'}}>
+            <h2 style={{fontFamily:'var(--fd)',fontSize:'2.6rem',fontWeight:'600'}}>Jouw Verlanglijst</h2>
+            {wishlist.length > 0 && <p style={{color:'var(--mid)',fontFamily:'var(--fb)',fontSize:'14px'}}>{wishlist.length} {wishlist.length===1?'product':'producten'}</p>}
+          </div>
+          {wishlist.length === 0 ? (
+            <div className="empty-state">
+              <Heart className="w-12 h-12 mx-auto mb-4" style={{color:'rgba(232,221,208,0.8)'}}/>
+              <h3 style={{fontFamily:'var(--fd)',fontSize:'1.6rem',fontWeight:'600',marginBottom:'8px'}}>Je verlanglijst is leeg</h3>
+              <p style={{color:'var(--mid)',marginBottom:'24px',fontFamily:'var(--fb)'}}>Klik het hartje op een product om het toe te voegen</p>
+              <button className="btn btn-dark" style={{width:'auto'}} onClick={()=>setView('shop')}>Ontdek producten</button>
+            </div>
+          ) : (
+            <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(240px,1fr))',gap:'18px'}}>
+              {wishlist.map(p=>(
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  onClick={setSelectedProduct}
+                  onAdd={addToCart}
+                  onWishlist={toggleWishlist}
+                  inWishlist={true}
+                />
+              ))}
+            </div>
+          )}
+        </main>
+      )}
+
+      {/* ══ CHECKOUT VIEW ══ */}
+      {view === 'checkout' && (
+        <main style={{maxWidth:'960px',margin:'0 auto',padding:'52px 24px'}}>
+          <button className="btn btn-ghost" onClick={()=>setView('shop')} style={{marginBottom:'36px',width:'auto'}}>← Terug naar AURA</button>
+          <h2 style={{fontFamily:'var(--fd)',fontSize:'2.6rem',fontWeight:'600',marginBottom:'32px'}}>Jouw Glow Cart</h2>
+
+          {cart.length === 0 ? (
+            <div className="empty-state">
+              <ShoppingCart className="w-12 h-12 mx-auto mb-4" style={{color:'rgba(232,221,208,0.8)'}}/>
+              <h3 style={{fontFamily:'var(--fd)',fontSize:'1.6rem',fontWeight:'600',marginBottom:'8px'}}>Je winkelwagen is leeg</h3>
+              <p style={{color:'var(--mid)',marginBottom:'24px',fontFamily:'var(--fb)'}}>Voeg producten toe om je glow te beginnen</p>
+              <button className="btn btn-dark" style={{width:'auto'}} onClick={()=>setView('shop')}>Beginnen met winkelen</button>
+            </div>
+          ) : (
+            <div>
+              {/* Step indicator */}
+              <div className="step-indicator" style={{marginBottom:'40px',flexWrap:'wrap',gap:'4px'}}>
+                {[{n:1,l:'Winkelwagen'},{n:2,l:'Verzending'},{n:3,l:'Betaling'}].map(({n,l},i)=>(
+                  <React.Fragment key={n}>
+                    <div className={`step-item ${checkoutStep===n?'active':checkoutStep>n?'done':''}`}>
+                      <div className="step-dot">{checkoutStep>n?<Check className="w-3 h-3"/>:n}</div>
+                      <span className="hidden sm:block">{l}</span>
+                    </div>
+                    {i < 2 && <div className="step-line"/>}
+                  </React.Fragment>
+                ))}
+              </div>
+
+              {/* STEP 1: Cart */}
+              {checkoutStep === 1 && (
+                <div style={{display:'grid',gap:'24px'}} className="lg:grid-cols-3">
+                  <div className="lg:col-span-2" style={{display:'flex',flexDirection:'column',gap:'10px'}}>
+                    {cart.map(item=>(
+                      <div key={item.id} style={{background:'#fff',borderRadius:'20px',padding:'18px',display:'flex',gap:'14px',border:'1px solid var(--border)'}}>
+                        <img src={item.image} alt={item.name} loading="lazy" style={{width:'72px',height:'72px',objectFit:'cover',borderRadius:'14px',flexShrink:0}}/>
+                        <div style={{flex:1}}>
+                          <h3 style={{fontFamily:'var(--fd)',fontWeight:'600',fontSize:'1.05rem',marginBottom:'4px'}}>{item.name}</h3>
+                          <p style={{fontSize:'12px',color:'var(--mid)',marginBottom:'10px',fontFamily:'var(--fb)'}}>€{item.price} per stuk</p>
+                          <div style={{display:'flex',alignItems:'center',gap:'6px'}}>
+                            <button onClick={()=>updateQty(item.id,item.quantity-1)} style={{padding:'5px',borderRadius:'8px',border:'1px solid var(--border)',background:'transparent',cursor:'pointer',display:'flex'}}><Minus className="w-3 h-3"/></button>
+                            <span style={{fontSize:'13px',fontWeight:'600',width:'22px',textAlign:'center',fontFamily:'var(--fb)'}}>{item.quantity}</span>
+                            <button onClick={()=>updateQty(item.id,item.quantity+1)} style={{padding:'5px',borderRadius:'8px',border:'1px solid var(--border)',background:'transparent',cursor:'pointer',display:'flex'}}><Plus className="w-3 h-3"/></button>
+                            <button onClick={()=>removeFromCart(item.id)} style={{marginLeft:'auto',fontSize:'11px',color:'var(--mid)',border:'none',background:'none',cursor:'pointer',fontFamily:'var(--fb)',transition:'color 200ms'}}
+                              onMouseEnter={e=>e.target.style.color='#EF4444'} onMouseLeave={e=>e.target.style.color='var(--mid)'}>Verwijderen</button>
+                          </div>
+                        </div>
+                        <p style={{fontWeight:'700',fontFamily:'var(--fd)',flexShrink:0,fontSize:'1.1rem'}}>€{(item.price*item.quantity).toFixed(2)}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{background:'#fff',borderRadius:'22px',padding:'26px',border:'1px solid var(--border)',position:'sticky',top:'80px',alignSelf:'start'}}>
+                    <h3 style={{fontFamily:'var(--fd)',fontSize:'1.4rem',fontWeight:'600',marginBottom:'20px'}}>Besteloverzicht</h3>
+                    <div style={{display:'flex',flexDirection:'column',gap:'9px',borderBottom:'1px solid var(--border)',paddingBottom:'18px',marginBottom:'18px'}}>
+                      {[['Subtotaal',`€${subtotal.toFixed(2)}`],['BTW (21%)',`€${tax.toFixed(2)}`],['Verzending',shipping===0?'GRATIS':`€${shipping.toFixed(2)}`]].map(([k,v])=>(
+                        <div key={k} style={{display:'flex',justifyContent:'space-between',fontSize:'13px',fontFamily:'var(--fb)'}}>
+                          <span style={{color:'var(--mid)'}}>{k}</span>
+                          <span style={{fontWeight:'500',color:v==='GRATIS'?'#16A34A':'inherit'}}>{v}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'22px'}}>
+                      <span style={{fontFamily:'var(--fd)',fontSize:'1.2rem',fontWeight:'600'}}>Totaal</span>
+                      <span style={{fontFamily:'var(--fd)',fontSize:'1.7rem',fontWeight:'700',color:'var(--gold)'}}>€{total.toFixed(2)}</span>
+                    </div>
+                    <button className="btn btn-dark" style={{width:'100%',padding:'14px'}} onClick={()=>setCheckoutStep(2)}>
+                      Verder naar verzending <ChevronRight className="w-4 h-4"/>
+                    </button>
+                    <div style={{borderTop:'1px solid var(--border)',marginTop:'16px',paddingTop:'16px',display:'flex',flexDirection:'column',gap:'8px'}}>
+                      {[[<Shield className="w-3.5 h-3.5"/>,'SSL-beveiligde verbinding'],[<RotateCcw className="w-3.5 h-3.5"/>,'30 dagen retour'],[<Package className="w-3.5 h-3.5"/>,'Gratis verzending boven €150']].map(([icon,text])=>(
+                        <div key={text} className="trust-row">{icon}<span>{text}</span></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 2: Shipping info */}
+              {checkoutStep === 2 && (
+                <div style={{display:'grid',gap:'24px'}} className="lg:grid-cols-3">
+                  <div className="lg:col-span-2">
+                    <div style={{background:'#fff',borderRadius:'22px',padding:'32px',border:'1px solid var(--border)'}}>
+                      <h3 style={{fontFamily:'var(--fd)',fontSize:'1.5rem',fontWeight:'600',marginBottom:'24px',display:'flex',alignItems:'center',gap:'10px'}}><MapPin className="w-5 h-5" style={{color:'var(--gold)'}}/>Bezorgadres</h3>
+                      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px'}}>
+                        {[['voornaam','Voornaam','Jan'],['achternaam','Achternaam','Janssens']].map(([k,l,ph])=>(
+                          <div key={k}>
+                            <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>{l}</label>
+                            <input className="checkout-field" placeholder={ph} value={shippingInfo[k]} onChange={e=>setShippingInfo(s=>({...s,[k]:e.target.value}))}/>
+                          </div>
+                        ))}
+                      </div>
+                      <div style={{marginTop:'14px'}}>
+                        <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>E-mailadres</label>
+                        <input className="checkout-field" type="email" placeholder="jan@example.com" value={shippingInfo.email} onChange={e=>setShippingInfo(s=>({...s,email:e.target.value}))}/>
+                      </div>
+                      <div style={{marginTop:'14px'}}>
+                        <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>Straat & huisnummer</label>
+                        <input className="checkout-field" placeholder="Kerkstraat 42" value={shippingInfo.adres} onChange={e=>setShippingInfo(s=>({...s,adres:e.target.value}))}/>
+                      </div>
+                      <div style={{marginTop:'14px',display:'grid',gridTemplateColumns:'140px 1fr',gap:'14px'}}>
+                        <div>
+                          <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>Postcode</label>
+                          <input className="checkout-field" placeholder="9000" value={shippingInfo.postcode} onChange={e=>setShippingInfo(s=>({...s,postcode:e.target.value}))}/>
+                        </div>
+                        <div>
+                          <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>Stad</label>
+                          <input className="checkout-field" placeholder="Gent" value={shippingInfo.stad} onChange={e=>setShippingInfo(s=>({...s,stad:e.target.value}))}/>
+                        </div>
+                      </div>
+                      <div style={{marginTop:'14px'}}>
+                        <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>Land</label>
+                        <select className="checkout-field" value={shippingInfo.land} onChange={e=>setShippingInfo(s=>({...s,land:e.target.value}))}>
+                          {['België','Nederland','Luxemburg','Duitsland','Frankrijk'].map(l=><option key={l}>{l}</option>)}
+                        </select>
+                      </div>
+                      <div style={{display:'flex',gap:'12px',marginTop:'28px',flexWrap:'wrap'}}>
+                        <button className="btn btn-ghost" style={{width:'auto'}} onClick={()=>setCheckoutStep(1)}>← Terug</button>
+                        <button className="btn btn-dark" style={{flex:1}}
+                          onClick={()=>{
+                            if(!shippingInfo.voornaam||!shippingInfo.achternaam||!shippingInfo.email||!shippingInfo.adres||!shippingInfo.postcode||!shippingInfo.stad){
+                              addToast('Vul alle velden in om door te gaan');return;
+                            }
+                            setCheckoutStep(3);
+                          }}>
+                          Verder naar betaling <ChevronRight className="w-4 h-4"/>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{background:'#fff',borderRadius:'22px',padding:'26px',border:'1px solid var(--border)',alignSelf:'start'}}>
+                    <h3 style={{fontFamily:'var(--fd)',fontSize:'1.2rem',fontWeight:'600',marginBottom:'16px'}}>Jouw bestelling</h3>
+                    <div style={{display:'flex',flexDirection:'column',gap:'10px',marginBottom:'16px',paddingBottom:'16px',borderBottom:'1px solid var(--border)'}}>
+                      {cart.map(i=>(
+                        <div key={i.id} style={{display:'flex',gap:'10px',alignItems:'center'}}>
+                          <img src={i.image} alt={i.name} style={{width:'40px',height:'40px',objectFit:'cover',borderRadius:'8px',flexShrink:0}}/>
+                          <div style={{flex:1}}>
+                            <p style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fd)'}}>{i.name}</p>
+                            <p style={{fontSize:'11px',color:'var(--mid)',fontFamily:'var(--fb)'}}>×{i.quantity}</p>
+                          </div>
+                          <p style={{fontSize:'13px',fontWeight:'700',fontFamily:'var(--fd)',flexShrink:0}}>€{(i.price*i.quantity).toFixed(2)}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{display:'flex',justifyContent:'space-between',fontFamily:'var(--fd)',fontWeight:'700',fontSize:'1.15rem'}}>
+                      <span>Totaal</span>
+                      <span style={{color:'var(--gold)'}}>€{total.toFixed(2)}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* STEP 3: Payment */}
+              {checkoutStep === 3 && (
+                <div style={{display:'grid',gap:'24px'}} className="lg:grid-cols-3">
+                  <div className="lg:col-span-2">
+                    <div style={{background:'#fff',borderRadius:'22px',padding:'32px',border:'1px solid var(--border)'}}>
+                      <h3 style={{fontFamily:'var(--fd)',fontSize:'1.5rem',fontWeight:'600',marginBottom:'24px',display:'flex',alignItems:'center',gap:'10px'}}>
+                        <Lock className="w-5 h-5" style={{color:'var(--gold)'}}/>Veilige betaling
+                      </h3>
+                      <div style={{background:'rgba(139,105,20,0.06)',border:'1px solid var(--border)',borderRadius:'12px',padding:'12px 16px',marginBottom:'24px',display:'flex',alignItems:'center',gap:'10px'}}>
+                        <Shield className="w-4 h-4 flex-shrink-0" style={{color:'var(--gold)'}}/>
+                        <p style={{fontSize:'12px',color:'var(--mid)',fontFamily:'var(--fb)'}}>Betaling wordt verwerkt via <strong style={{color:'var(--dark)'}}>Stripe</strong>. Jouw gegevens zijn altijd beveiligd.</p>
+                      </div>
+                      <div style={{marginBottom:'14px'}}>
+                        <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>Naam op kaart</label>
+                        <input className="checkout-field" placeholder="Jan Janssens" value={payInfo.name} onChange={e=>setPayInfo(p=>({...p,name:e.target.value}))}/>
+                      </div>
+                      <div style={{marginBottom:'14px'}}>
+                        <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>Kaartnummer</label>
+                        <input className="checkout-field" placeholder="1234 5678 9012 3456" maxLength="19" value={payInfo.card}
+                          onChange={e=>{
+                            const v=e.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim().slice(0,19);
+                            setPayInfo(p=>({...p,card:v}));
+                          }}/>
+                      </div>
+                      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px',marginBottom:'28px'}}>
+                        <div>
+                          <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>Vervaldatum</label>
+                          <input className="checkout-field" placeholder="MM/JJ" maxLength="5" value={payInfo.expiry}
+                            onChange={e=>{
+                              const v=e.target.value.replace(/\D/g,'');
+                              setPayInfo(p=>({...p,expiry:v.length>2?v.slice(0,2)+'/'+v.slice(2,4):v}));
+                            }}/>
+                        </div>
+                        <div>
+                          <label style={{fontSize:'12px',fontWeight:'600',fontFamily:'var(--fb)',display:'block',marginBottom:'6px'}}>CVC</label>
+                          <input className="checkout-field" placeholder="123" maxLength="3" value={payInfo.cvc} onChange={e=>setPayInfo(p=>({...p,cvc:e.target.value.replace(/\D/g,'').slice(0,3)}))} type="password"/>
+                        </div>
+                      </div>
+                      <div style={{display:'flex',gap:'12px',flexWrap:'wrap'}}>
+                        <button className="btn btn-ghost" style={{width:'auto'}} onClick={()=>setCheckoutStep(2)}>← Terug</button>
+                        <button className="btn btn-dark" style={{flex:1,padding:'15px'}} onClick={handleCheckoutPay}>
+                          <Lock className="w-4 h-4"/> Betaal €{total.toFixed(2)} via Stripe
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{alignSelf:'start'}}>
+                    <div style={{background:'#fff',borderRadius:'22px',padding:'26px',border:'1px solid var(--border)',marginBottom:'14px'}}>
+                      <h3 style={{fontFamily:'var(--fd)',fontSize:'1.2rem',fontWeight:'600',marginBottom:'16px'}}>Bezorgadres</h3>
+                      <p style={{fontSize:'13px',fontFamily:'var(--fb)',lineHeight:'1.7',color:'var(--mid)'}}>
+                        {shippingInfo.voornaam} {shippingInfo.achternaam}<br/>
+                        {shippingInfo.adres}<br/>
+                        {shippingInfo.postcode} {shippingInfo.stad}<br/>
+                        {shippingInfo.land}
+                      </p>
+                    </div>
+                    <div style={{background:'#fff',borderRadius:'22px',padding:'26px',border:'1px solid var(--border)'}}>
+                      <div style={{display:'flex',justifyContent:'space-between',fontFamily:'var(--fd)',fontWeight:'700',fontSize:'1.15rem'}}>
+                        <span>Totaal</span>
+                        <span style={{color:'var(--gold)'}}>€{total.toFixed(2)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </main>
+      )}
+
+      {/* ══ SUCCESS VIEW ══ */}
+      {view === 'success' && (
+        <main style={{maxWidth:'640px',margin:'0 auto',padding:'80px 24px',textAlign:'center'}}>
+          <div style={{width:'80px',height:'80px',background:'linear-gradient(135deg,var(--gold),var(--gold-mid))',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto 28px',boxShadow:'0 16px 48px rgba(139,105,20,0.3)'}}>
+            <Check className="w-8 h-8" style={{color:'#fff'}}/>
+          </div>
+          <span className="eyebrow" style={{marginBottom:'20px',display:'inline-flex'}}>✦  Bestelling bevestigd</span>
+          <h2 style={{fontFamily:'var(--fd)',fontSize:'clamp(2.4rem,6vw,3.8rem)',fontWeight:'600',color:'var(--dark)',marginBottom:'16px',lineHeight:'1.1'}}>
+            Dank je, {shippingInfo.voornaam||'beauty lover'}!
+          </h2>
+          <p style={{color:'var(--mid)',fontFamily:'var(--fb)',lineHeight:'1.75',marginBottom:'32px'}}>
+            Je bestelling <strong style={{color:'var(--dark)'}}>{orderNumber}</strong> is ontvangen. Je ontvangt een bevestiging op {shippingInfo.email||'jouw e-mailadres'}. Verwacht je glow binnen 2–4 werkdagen.
+          </p>
+          <div style={{background:'linear-gradient(135deg,#f5ece0,#ede0cf)',borderRadius:'20px',padding:'28px',marginBottom:'32px',border:'1px solid var(--border)'}}>
+            <p style={{fontSize:'12px',color:'var(--mid)',letterSpacing:'2px',textTransform:'uppercase',fontFamily:'var(--fb)',marginBottom:'6px'}}>Bestelnummer</p>
+            <p style={{fontFamily:'var(--fd)',fontSize:'1.8rem',fontWeight:'700',color:'var(--gold)'}}>{orderNumber}</p>
+          </div>
+          <div style={{display:'flex',gap:'12px',justifyContent:'center',flexWrap:'wrap'}}>
+            <button className="btn btn-dark" style={{width:'auto'}} onClick={()=>{setView('shop');setOrderNumber('');}}>
+              Verder winkelen<span className="btn-icon"><ArrowRight className="w-3 h-3"/></span>
+            </button>
+            <button className="btn btn-ghost" style={{width:'auto'}} onClick={()=>document.getElementById('newsletter')?.scrollIntoView({behavior:'smooth'})}>Blijf in de loop</button>
+          </div>
+        </main>
+      )}
+
+      {/* ── Product Modal ── */}
+      {selectedProduct && (
+        <div className="modal-backdrop" onClick={()=>setSelectedProduct(null)}>
+          <div className="modal-box" onClick={e=>e.stopPropagation()}>
+            <div className="grid md:grid-cols-2">
+              <div style={{position:'relative'}}>
+                <img src={selectedProduct.image} alt={selectedProduct.name} loading="lazy"
+                  style={{width:'100%',height:'100%',minHeight:'360px',objectFit:'cover',borderRadius:'2rem 0 0 2rem'}}/>
+                <button onClick={()=>setSelectedProduct(null)}
+                  style={{position:'absolute',top:'14px',right:'14px',background:'rgba(255,255,255,0.92)',backdropFilter:'blur(8px)',border:'none',borderRadius:'50%',width:'34px',height:'34px',display:'flex',alignItems:'center',justifyContent:'center',cursor:'pointer'}}>
+                  <X className="w-4 h-4"/>
+                </button>
+                {selectedProduct.badge && (
+                  <div style={{position:'absolute',bottom:'14px',left:'14px'}}>
+                    <span className="badge badge-new">{selectedProduct.badge}</span>
+                  </div>
+                )}
+              </div>
+              <div style={{padding:'36px 32px',overflowY:'auto'}}>
+                <div style={{display:'flex',gap:'8px',marginBottom:'12px',flexWrap:'wrap'}}>
+                  <span className={`badge ${selectedProduct.type==='own'?'badge-own':'badge-prt'}`}>{selectedProduct.type==='own'?'AURA LUXE':'PARTNER'}</span>
+                </div>
+                <p style={{fontSize:'10px',color:'var(--mid)',letterSpacing:'2.5px',textTransform:'uppercase',marginBottom:'6px',fontWeight:'500',fontFamily:'var(--fb)'}}>{selectedProduct.category}</p>
+                <h2 style={{fontFamily:'var(--fd)',fontSize:'1.9rem',fontWeight:'600',marginBottom:'10px',lineHeight:'1.1'}}>{selectedProduct.name}</h2>
+                {selectedProduct.affiliate && <p style={{fontSize:'12px',color:'#c9956d',fontWeight:'500',marginBottom:'10px',fontFamily:'var(--fb)'}}>Gecureerd door {selectedProduct.affiliate}</p>}
+                <div style={{display:'flex',alignItems:'center',gap:'8px',marginBottom:'16px'}}>
+                  <Stars rating={selectedProduct.rating} size="lg"/>
+                  <span style={{fontSize:'13px',color:'var(--mid)',fontFamily:'var(--fb)'}}>({selectedProduct.reviews.toLocaleString()} beoordelingen)</span>
+                </div>
+                <div style={{fontFamily:'var(--fd)',fontSize:'2.4rem',fontWeight:'700',color:'var(--gold)',marginBottom:'16px'}}>€{selectedProduct.price}</div>
+                <div style={{background:'var(--gold-pale)',border:'1px solid rgba(232,221,208,0.7)',borderRadius:'14px',padding:'14px',marginBottom:'16px',fontSize:'13px',fontFamily:'var(--fb)'}}>
+                  <p style={{fontWeight:'600',marginBottom:'5px'}}>{selectedProduct.type==='own'?'✨ AURA Crafted':'🤝 Partner Pick'}</p>
+                  <p style={{color:'var(--mid)',lineHeight:'1.6'}}>{selectedProduct.type==='own'?'Gemaakt met intentie. Onze eigen premium collectie voor jouw unieke glow.':'Wereldwijd gecureerde excellentie. Transparante commissie — zelfde prijs als bij de partner.'}</p>
+                </div>
+                <p style={{fontSize:'13px',color:'var(--mid)',lineHeight:'1.75',marginBottom:'20px',fontFamily:'var(--fb)'}}>{selectedProduct.description}</p>
+                {selectedProduct.shade && (
+                  <div style={{marginBottom:'20px'}}>
+                    <p style={{fontSize:'12px',fontWeight:'600',marginBottom:'8px',fontFamily:'var(--fb)'}}>Kleur: <span style={{color:'var(--gold)'}}>{selectedProduct.shade}</span></p>
+                    <div style={{display:'flex',gap:'8px'}}>
+                      {[['#F5D5B0','Light Beige'],['#F0C4A0','Medium'],['#D4956A','Deep']].map(([bg,name])=>(
+                        <button key={name} title={name} style={{width:'30px',height:'30px',background:bg,borderRadius:'50%',border:'2px solid rgba(28,28,30,0.12)',cursor:'pointer',transition:'transform 250ms var(--spring)',flexShrink:0}}
+                          onMouseEnter={e=>e.target.style.transform='scale(1.18)'} onMouseLeave={e=>e.target.style.transform='scale(1)'}/>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
+                  {selectedProduct.type==='affiliate' ? (
+                    <button className="btn btn-amber" style={{fontSize:'13px',padding:'14px'}} onClick={()=>addToCart(selectedProduct)}>Ontdekken bij {selectedProduct.affiliate}</button>
+                  ) : (
+                    <button className="btn btn-dark" style={{width:'100%',padding:'14px',fontSize:'13px'}} onClick={()=>addToCart(selectedProduct)}>
+                      Voeg toe aan Glow<span className="btn-icon"><ArrowRight className="w-3 h-3"/></span>
+                    </button>
+                  )}
+                  <button
+                    className={`heart-btn ${wishlist.find(w=>w.id===selectedProduct.id)?'active':''}`}
+                    style={{width:'100%',padding:'12px',borderRadius:'100px',border:'1.5px solid rgba(28,28,30,0.18)',display:'flex',alignItems:'center',justifyContent:'center',gap:'8px',fontSize:'13px',fontFamily:'var(--fb)',fontWeight:'500',transition:'border-color 200ms,background 200ms'}}
+                    onClick={()=>toggleWishlist(selectedProduct)}
+                    onMouseEnter={e=>e.currentTarget.style.borderColor='var(--dark)'}
+                    onMouseLeave={e=>e.currentTarget.style.borderColor='rgba(28,28,30,0.18)'}
+                  >
+                    <Heart className={`w-4 h-4 ${wishlist.find(w=>w.id===selectedProduct.id)?'fill-red-500 text-red-500':'text-gray-500'}`}/>
+                    {wishlist.find(w=>w.id===selectedProduct.id)?'Verwijder uit verlanglijst':'Voeg toe aan verlanglijst'}
+                  </button>
+                </div>
+                <div style={{borderTop:'1px solid var(--border)',marginTop:'18px',paddingTop:'16px',display:'flex',flexDirection:'column',gap:'6px'}}>
+                  {['✓ Gratis verzending boven €150','✓ 30 dagen retour','✓ Cruelty-free & vegan gecertificeerd'].map(t=>(
+                    <p key={t} style={{fontSize:'12px',color:'var(--mid)',fontFamily:'var(--fb)'}}>{t}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── Footer ── */}
+      <footer className="site-footer">
+        <div style={{maxWidth:'1120px',margin:'0 auto',padding:'0 24px'}}>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',gap:'40px',marginBottom:'40px'}}>
+            <div>
+              <h3 style={{fontFamily:'var(--fd)',fontSize:'1.6rem',fontWeight:'700',color:'var(--gold)',marginBottom:'8px'}}>AURA LUXE</h3>
+              <p style={{fontSize:'13px',color:'var(--mid)',lineHeight:'1.7',fontFamily:'var(--fb)',maxWidth:'240px'}}>Luxury beauty voor iedereen die haar unieke glans wil omarmen.</p>
+            </div>
+            <div>
+              <p style={{fontSize:'11px',fontWeight:'600',letterSpacing:'2px',textTransform:'uppercase',fontFamily:'var(--fb)',marginBottom:'14px',color:'var(--dark)'}}>Shop</p>
+              {['Alle producten','AURA Crafted','Partner Picks','Nieuwe arrivals','Bestsellers'].map(l=>(
+                <button key={l} onClick={()=>{setView('shop');}} style={{display:'block',fontSize:'13px',color:'var(--mid)',fontFamily:'var(--fb)',background:'none',border:'none',cursor:'pointer',marginBottom:'8px',textAlign:'left',transition:'color 200ms'}}
+                  onMouseEnter={e=>e.target.style.color='var(--gold)'} onMouseLeave={e=>e.target.style.color='var(--mid)'}>{l}</button>
+              ))}
+            </div>
+            <div>
+              <p style={{fontSize:'11px',fontWeight:'600',letterSpacing:'2px',textTransform:'uppercase',fontFamily:'var(--fb)',marginBottom:'14px',color:'var(--dark)'}}>Info</p>
+              {[['Ons Verhaal',()=>setView('story')],['Impact Dashboard',()=>setShowDash(s=>!s)],['Word lid',()=>document.getElementById('newsletter')?.scrollIntoView({behavior:'smooth'})],['Contact',()=>{}]].map(([l,fn])=>(
+                <button key={l} onClick={fn} style={{display:'block',fontSize:'13px',color:'var(--mid)',fontFamily:'var(--fb)',background:'none',border:'none',cursor:'pointer',marginBottom:'8px',textAlign:'left',transition:'color 200ms'}}
+                  onMouseEnter={e=>e.target.style.color='var(--gold)'} onMouseLeave={e=>e.target.style.color='var(--mid)'}>{l}</button>
+              ))}
+            </div>
+            <div>
+              <p style={{fontSize:'11px',fontWeight:'600',letterSpacing:'2px',textTransform:'uppercase',fontFamily:'var(--fb)',marginBottom:'14px',color:'var(--dark)'}}>Beloftes</p>
+              {[
+                [<Truck className="w-3.5 h-3.5"/>,'Gratis verzending boven €150'],
+                [<RotateCcw className="w-3.5 h-3.5"/>,'30 dagen retour'],
+                [<Leaf className="w-3.5 h-3.5"/>,'Cruelty-free & vegan'],
+                [<Award className="w-3.5 h-3.5"/>,'Kwaliteitsgarantie'],
+              ].map(([icon,txt])=>(
+                <div key={txt} className="trust-row" style={{marginBottom:'10px'}}>
+                  <span style={{color:'var(--gold)'}}>{icon}</span>
+                  <span style={{fontSize:'12px'}}>{txt}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div style={{borderTop:'1px solid var(--border)',paddingTop:'24px',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:'12px'}}>
+            <p style={{fontSize:'11px',color:'var(--mid)',fontFamily:'var(--fb)'}}>© 2026 AURA LUXE. Alle rechten voorbehouden.</p>
+            <div style={{display:'flex',gap:'20px'}}>
+              {['Privacy','Voorwaarden','Cookie-instellingen'].map(l=>(
+                <a key={l} href="#" style={{fontSize:'11px',color:'var(--mid)',fontFamily:'var(--fb)',transition:'color 200ms'}}
+                  onMouseEnter={e=>e.target.style.color='var(--gold)'} onMouseLeave={e=>e.target.style.color='var(--mid)'}>{l}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>
